@@ -1,0 +1,17 @@
+<%= form_with(url: "/", method: "get") do %>
+  <%= label_tag(:query_string, "Enter address") %>
+  <%= text_field_tag(:query_string) %>
+  <%= submit_tag("Ok") %>
+<% end %>
+
+<% if @error.nil? or @error.empty? %>
+  <p><b>City:</b> <%= @city %></p>
+  <p><b>Zip Code:</b> <%= @zip_code %></p>
+  <p><b>Is taken from cache:</b> <%= @from_cache %></p>
+  <p><b>Current temperature:</b> <%= @current_temperature %></p>
+  
+<% else %>
+  <b><%= @error%></b>
+<% end %>
+
+
