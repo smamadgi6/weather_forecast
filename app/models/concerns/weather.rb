@@ -7,7 +7,7 @@ class Weather
   end
 
   def weather (city_name)
-    response = Faraday.get "https://api.openweathermap.org/data/2.5/weather?q=#{city_name}&appid=#{@api_key}"
+    response = Faraday.get "https://api.openweathermap.org/data/2.5/weather?q=#{city_name}&appid=#{@api_key}&units=imperial"
 
     JSON.parse(response.body)
   end
