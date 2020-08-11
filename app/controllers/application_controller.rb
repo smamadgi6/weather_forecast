@@ -1,6 +1,7 @@
 
 class ApplicationController < ActionController::Base
   def index
+
     query_string = params[:query_string]
 
     unless query_string.nil? or query_string.empty?
@@ -29,6 +30,8 @@ class ApplicationController < ActionController::Base
         @current_temperature = weather["main"]["temp"]
         @min_temperature = weather["main"]["temp_min"]
         @max_temperature = weather["main"]["temp_max"]
+
+
       rescue StandardError => e
         puts e.message
         @error = "Can't process entered data"

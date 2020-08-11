@@ -1,8 +1,8 @@
- Ruby On Rails console applicati#on to retrieve weather for given address
+ Ruby On Rails applicati#on to retrieve weather for given address
 
-##Usage using local ruby installation
+## Usage using local ruby installation
 
-1.) 
+1) 
 
 ```bash
      bundle install

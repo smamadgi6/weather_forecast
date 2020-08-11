@@ -1,6 +1,6 @@
 <%= form_with(url: "/", method: "get") do %>
-  <%= label_tag(:query_string, "Enter address") %>
-  <%= text_field_tag(:query_string) %>
+  <%= label_tag(:query_string, "Enter address *") %>
+  <%= text_field_tag :query_string,'', :required=>true %>
   <%= submit_tag("Ok") %>
 <% end %>
 
@@ -11,6 +11,7 @@
   <p><b>Current temperature:</b> <%= @current_temperature %></p>
   <p><b>Min temperature:</b> <%= @min_temperature %></p>
   <p><b>Max temperature:</b> <%= @max_temperature %></p>
+  
   
 <% else %>
   <b><%= @error%></b>
