@@ -4,11 +4,6 @@ class ApplicationController < ActionController::Base
 
     query_string = params[:query_string]
      unless query_string.nil? or query_string.empty?
-      verifier = MainStreet::AddressVerifier.new(query_string)
-        unless verifier.success?
-          @error = "Address in incorrect"
-          return
-        end
       begin
         address = Address.new
         weather = Weather.new ENV['OPENWEATHERMAP_KEY']
@@ -26,13 +21,13 @@ class ApplicationController < ActionController::Base
         @from_cache = false
 
         if zip_code.nil? or zip_code.empty?
-          weather = weather.weather(parsed_address[:city])
+          weather = weather.weather(parsed_address[:coordinates])
         else
           @from_cache = Rails.cache.exist? parsed_address[:zipcode]
           if @from_cache
             weather = Rails.cache.read parsed_address[:zipcode]
           else
-            weather = weather.weather(parsed_address[:city])
+            weather = weather.weather(parsed_address[:coordinates])
             Rails.cache.write(zip_code, weather, :timeToLive => 30.minutes)
           end
         end
