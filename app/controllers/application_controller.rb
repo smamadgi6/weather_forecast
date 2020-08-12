@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
         parsed_address = address.address_parse(query_string)
          if parsed_address[:city].nil? or parsed_address[:city].empty?
           puts "City not found"
-          @error = "City not found"
+          @error = "Cannot identify City with the given information. Please retry."
           return
          end  
         city = parsed_address[:city]
@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
 
       rescue StandardError => e
         puts e.message
-        @error = "Cannot process entered data, please retry"
+        @error = "Cannot process with the given information. Please retry."
       end
     end
   end

@@ -6,9 +6,9 @@
 <% end %>
 
 <% if @error.nil? or @error.empty? %>
-  <p>City: <%= @city %> &nbsp &nbsp
-  Zip Code: <%= @zip_code %> &nbsp &nbsp
-  Is taken from cache: <%= @from_cache %></p>
+  <p><b>City:</b> <%= @city %> &nbsp &nbsp
+  <b>Zip Code:</b> <%= @zip_code %> &nbsp &nbsp
+  <b>Is this data retrieved from cache in the last 30 mins:</b> <%= @from_cache %></p>
   <p>&nbsp &nbsp<h3>Your local weather forecast:</h3></p> 
   <p><h4> &nbsp &nbsp &nbsp &nbsp<%= @weather_main %></h4></p>
   <p><b>Weather:</b> <%= @weather_desc %></p>
