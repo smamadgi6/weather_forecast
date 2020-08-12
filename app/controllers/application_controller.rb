@@ -3,13 +3,24 @@ class ApplicationController < ActionController::Base
   def index
 
     query_string = params[:query_string]
-
-    unless query_string.nil? or query_string.empty?
+     unless query_string.nil? or query_string.empty?
+      verifier = MainStreet::AddressVerifier.new(query_string)
+        unless verifier.success?
+          @error = "Address in incorrect"
+          return
+        end
       begin
         address = Address.new
         weather = Weather.new ENV['OPENWEATHERMAP_KEY']
         
         parsed_address = address.address_parse(query_string)
+         if parsed_address[:city].nil? or parsed_address[:city].empty?
+
+          puts "City not found"
+
+          @error = "City not found"
+          return
+        end  
         city = parsed_address[:city]
         zip_code = parsed_address[:zipcode]
         @city = city
