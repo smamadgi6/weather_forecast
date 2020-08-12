@@ -26,3 +26,11 @@ https://docs.docker.com/engine/install/
 
 ### Used APIs:
 https://openweathermap.org
+
+### Summary:
+The application takes address as the user input as per the requirements and calls the Geocoder api service to parse the address. The Geocoder performs a search on address and returns the result set. The application takes the first search object to retreive  zipcode and city and caches the zipcode data using Rails Cacher for 30 minutes. The request to openweather api service to retrieve forecast details depends on the zipcode found in Cache.If not in cache, it calls the api based on weather coordinates of the address and displays forecast data to the user.
+
+### Future Enhancements:
+1) Address Validation can be done to avoid invalid addresses. 
+2) Address Autocomplete feature can be added for better UX.
+3) Weather related features such as hourly/future forecasts, display previous search results and swap metric between C, F, K.
