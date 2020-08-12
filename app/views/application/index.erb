@@ -9,11 +9,13 @@
   <p>City: <%= @city %> &nbsp &nbsp
   Zip Code: <%= @zip_code %> &nbsp &nbsp
   Is taken from cache: <%= @from_cache %></p>
-  <p><h3>Your local weather forecast:</h3></p> 
+  <p>&nbsp &nbsp<h3>Your local weather forecast:</h3></p> 
+  <p><h4> &nbsp &nbsp &nbsp &nbsp<%= @weather_main %></h4></p>
+  <p><b>Weather:</b> <%= @weather_desc %></p>
   <p><b>Current temperature in F:</b> <%= @current_temperature %></p>
   <p><b>Min temperature in F:</b> <%= @min_temperature %></p>
   <p><b>Max temperature in F:</b> <%= @max_temperature %></p>
-
+   
   
 <% else %>
   <b><%= @error%></b>
