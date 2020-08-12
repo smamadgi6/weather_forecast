@@ -22,6 +22,7 @@ https://docs.docker.com/engine/install/
 ```bash
      docker-compose up --build
 ```
+3) Go to http://localhost:3000 on a web browser
 
 ### Used APIs:
 https://openweathermap.org

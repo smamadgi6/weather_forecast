@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       begin
         address = Address.new
         weather = Weather.new ENV['OPENWEATHERMAP_KEY']
-
+        
         parsed_address = address.address_parse(query_string)
         city = parsed_address[:city]
         zip_code = parsed_address[:zipcode]
@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
 
       rescue StandardError => e
         puts e.message
-        @error = "Can't process entered data"
+        @error = "Cannot process entered data, please retry"
       end
     end
   end

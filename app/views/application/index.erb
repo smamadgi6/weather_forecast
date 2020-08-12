@@ -1,3 +1,4 @@
+<p><h2>The Weather Channel</h2></p> 
 <%= form_with(url: "/", method: "get") do %>
   <%= label_tag(:query_string, "Enter address *") %>
   <%= text_field_tag :query_string,'', :required=>true %>
@@ -5,13 +6,14 @@
 <% end %>
 
 <% if @error.nil? or @error.empty? %>
-  <p><b>City:</b> <%= @city %></p>
-  <p><b>Zip Code:</b> <%= @zip_code %></p>
-  <p><b>Is taken from cache:</b> <%= @from_cache %></p>
-  <p><b>Current temperature:</b> <%= @current_temperature %></p>
-  <p><b>Min temperature:</b> <%= @min_temperature %></p>
-  <p><b>Max temperature:</b> <%= @max_temperature %></p>
-  
+  <p>City: <%= @city %> &nbsp &nbsp
+  Zip Code: <%= @zip_code %> &nbsp &nbsp
+  Is taken from cache: <%= @from_cache %></p>
+  <p><h3>Your local weather forecast:</h3></p> 
+  <p><b>Current temperature in F:</b> <%= @current_temperature %></p>
+  <p><b>Min temperature in F:</b> <%= @min_temperature %></p>
+  <p><b>Max temperature in F:</b> <%= @max_temperature %></p>
+
   
 <% else %>
   <b><%= @error%></b>
